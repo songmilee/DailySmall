@@ -7,17 +7,21 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import mi.song.dailysmall.R;
+import mi.song.dailysmall.base.BaseActivity;
 import mi.song.dailysmall.base.MainActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        getSupportActionBar().hide();
+        init();
+    }
 
+    @Override
+    protected void init() {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
