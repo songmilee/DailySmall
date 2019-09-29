@@ -1,12 +1,15 @@
 package mi.song.dailysmall.activity;
 
 import android.os.Bundle;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import mi.song.dailysmall.R;
 import mi.song.dailysmall.base.BaseActivity;
+import mi.song.dailysmall.markdown.MarkDownView;
 
 public class DiaryDetailActivity extends BaseActivity {
+    MarkDownView mdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +22,12 @@ public class DiaryDetailActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        TextView temp = (TextView) findViewById(R.id.temp_id);
+        mdView = (MarkDownView) findViewById(R.id.detail_mdview);
+    }
 
-        Bundle b = getIntent().getExtras();
-        int id = b.getInt("id");
-
-        temp.setText(String.format("Hello %s", id));
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mdView.loadUrl("https://www.google.com");
     }
 }
