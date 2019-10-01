@@ -1,14 +1,12 @@
 package mi.song.dailysmall.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import mi.song.dailysmall.R;
 import mi.song.dailysmall.base.BaseActivity;
-import mi.song.dailysmall.base.MainActivity;
+import mi.song.dailysmall.MainActivity;
 
 public class SplashActivity extends BaseActivity {
 

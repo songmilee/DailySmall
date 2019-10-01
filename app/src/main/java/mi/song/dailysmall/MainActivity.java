@@ -1,4 +1,4 @@
-package mi.song.dailysmall.base;
+package mi.song.dailysmall;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 import mi.song.dailysmall.R;
 import mi.song.dailysmall.adapter.DiaryRecyclerViewAdapter;
+import mi.song.dailysmall.base.BaseActivity;
+import mi.song.dailysmall.def.ReqCode;
 import mi.song.dailysmall.model.DailyDiary;
 
 public class MainActivity extends BaseActivity {
@@ -24,7 +26,8 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        checkPermission();
+        String[] permissions = {ReqCode.MANIFEST_READ_EXT, ReqCode.MANIFEST_WRITE_EXT};
+        checkPermission(permissions);
         init();
     }
 

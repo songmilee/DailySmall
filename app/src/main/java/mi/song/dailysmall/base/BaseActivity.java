@@ -17,14 +17,9 @@ import mi.song.dailysmall.def.ReqCode;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    String[] permissions = {
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-    };
-
     abstract protected void init();
 
-    protected boolean checkPermission(){
+    protected boolean checkPermission(String[] permissions){
         int result;
         ArrayList<String> permissionList = new ArrayList<>();
 
@@ -37,7 +32,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         if(!permissionList.isEmpty()){
-            ActivityCompat.requestPermissions(this, permissionList.toArray(new String[permissionList.size()]), ReqCode.REQ_PERMISSION);
+            String[] perList = new String[permissionList.size()];
+            ActivityCompat.requestPermissions(this, permissionList.toArray(perList), ReqCode.REQ_PERMISSION);
             return false;
         }
 
@@ -46,8 +42,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         int size = permissions.length;
         if(requestCode == ReqCode.REQ_PERMISSION){
             if(grantResults.length > 0){
