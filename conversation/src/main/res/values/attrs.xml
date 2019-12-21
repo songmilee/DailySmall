@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="BubbleSpeech">
         <attr name="backColor" format="color|reference"/>
+        <attr name="profile_img" format="integer|reference"/>
     </declare-styleable>
 </resources>
